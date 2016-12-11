@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pizzerie</ion-title>
+     <ion-buttons end>
+     
+      <button ion-button (click)="callIT('tel:+36205600633')">
+           <ion-icon name="call"></ion-icon> 
+      </button>
+
+      <button ion-button (click)="goInformation()">
+        <ion-icon name="information-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<!--<ion-content padding>
+  <h3>Ionic Menu Starter</h3>
+
+  <p>
+    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+  </p>
+
+  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <button ion-button secondary (click)="goToPizza()">Pizza</button>
+</ion-content>-->
+
+<ion-tabs >
+  <ion-tab tabTitle="Pizza" [root]="PizzaTab" [rootParams]="Pizza" tabIcon="basketball"></ion-tab>
+  <ion-tab tabTitle="Fast Food" [root]="PizzaTab" [rootParams]="Pizza" tabIcon="podium"></ion-tab>
+  <ion-tab tabTitle="Drink" [root]="PizzaTab" [rootParams]="Pizza" tabIcon="podium"></ion-tab>
+
+</ion-tabs>
