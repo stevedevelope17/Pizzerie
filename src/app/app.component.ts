@@ -2,12 +2,18 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+<<<<<<< HEAD
 import { Home } from '../pages/home/home';
 import { Page2 } from '../pages/page2/page2';
 import { PizzaPage } from '../pages/pizza/pizza';
 import {InformationPage} from '../information/information';
 import { enableProdMode } from '@angular/core';
 enableProdMode();
+=======
+import { Page1 } from '../pages/page1/page1';
+import { Page2 } from '../pages/page2/page2';
+
+>>>>>>> 8610503267070242e48f1a68bbfbc62d9532b9e7
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +21,11 @@ enableProdMode();
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+<<<<<<< HEAD
   rootPage: any = Home;
+=======
+  rootPage: any = Page1;
+>>>>>>> 8610503267070242e48f1a68bbfbc62d9532b9e7
 
   pages: Array<{title: string, component: any}>;
 
@@ -24,7 +34,11 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
+<<<<<<< HEAD
       { title: 'Home', component: Home },
+=======
+      { title: 'Page One', component: Page1 },
+>>>>>>> 8610503267070242e48f1a68bbfbc62d9532b9e7
       { title: 'Page Two', component: Page2 }
     ];
 
@@ -37,7 +51,10 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
     });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8610503267070242e48f1a68bbfbc62d9532b9e7
   }
 
   openPage(page) {
