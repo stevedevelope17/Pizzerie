@@ -25,5 +25,17 @@
   </ion-item>
  
  </ion-list>
- 
+ <ion-list *ngFor="let pizza of pizzas">
+  <ion-item-divider ion-item light no-lines style="font-size: 1.4rem">
+   <ion-item>
+    <ion-avatar item-left>
+      <img src="img/pizza2.png">
+    </ion-avatar>
+    <h2>{{pizza.name}}</h2>
+    <h3>{{pizza.price}}</h3>
+    <p>I've had a pretty messed up day. If we just...</p>
+  </ion-item>
+  </ion-item-divider>
+</ion-list>
+
 </ion-content>
