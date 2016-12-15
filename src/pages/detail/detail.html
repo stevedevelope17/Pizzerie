@@ -15,39 +15,39 @@
 
 <ion-content class="card-background-page">
 
- <ion-card>
-  <img src="{{pizza.image}}"/>
-  <ion-card-content>
-    <ion-card-title>
-      {{pizza.name}}
+  <ion-card>
+    <img src="{{pizza.image}}" />
+    <ion-card-content>
+      <ion-card-title>
+        {{pizza.name}}
       </ion-card-title>
-    <p>
-     Ingrediente:  {{pizza.description}}
-     </p>
-    <p>
-     CC:  {{pizza.weight}}
-     </p>
-     <p>
-     Pret: {{pizza.price}}
-    </p>
-  </ion-card-content>
-  <ion-row>
-    <ion-col>
-     <button ion-button icon-left outline (click)="toggleFollow()" *ngIf="!isFollowing">
+      <p>
+        Ingrediente: {{pizza.description}}
+      </p>
+      <p>
+        CC: {{pizza.weight}}
+      </p>
+      <p>
+        Pret: {{pizza.price}}
+      </p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left outline (click)="toggleFollow()" *ngIf="!isFollowing">
                         <ion-icon name="star"></ion-icon>
                         Add Favorite
                     </button>
-                    <button ion-button icon-only (click)="toggleFollow()" *ngIf="isFollowing">
+        <button ion-button icon-only (click)="toggleFollow()" *ngIf="isFollowing">
                         <ion-icon name="star"></ion-icon>
                     </button>
-    </ion-col>
-    <ion-col>
-      <button ion-button icon-left clear small>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
         <ion-icon name="call"></ion-icon>
         <div>Order</div>
       </button>
-    </ion-col>   
-  </ion-row>
-</ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 
 </ion-content>
