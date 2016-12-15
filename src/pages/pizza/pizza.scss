@@ -4,4 +4,28 @@ page-pizza {
   background-position:center;
   background-image: url('../img/pizzaTabIcon.png');
 }
+.ion-list-header {
+    background-color: #795548;
+    display: flex;
+    color:#F5F5DC;
+    font-size: 18pt;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+}
+.h2{
+    color:#795548;
+    display: inline-flex;
+    font-size: 18pt;
+    font-family: Courier New, Courier, monospace;
+  }
+.p{
+  color:#795548;
+  font-weight: bold;
+  font-size: 18pt;
+  font-family: Courier New, Courier, monospace;
+}
+.ion-thumbnail{
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 5px);
+}
 }

@@ -1,0 +1,35 @@
+<!--
+  Generated template for the Favorites page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Favorites</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-card *ngIf="!favorites">
+    <ion-card-header >No Followed foods</ion-card-header>
+    <ion-card-content>
+      <p>You are not currently following any foods.</p>
+    </ion-card-content>
+  </ion-card>
+
+
+<ion-card *ngIf="favorites">  
+  <ion-list>
+  <ion-list-header  >Followed Foods</ion-list-header>
+    <button ion-item *ngFor="let item of favorites" (click)="favoriteTapped($event, item)">
+      <ion-icon name="star"></ion-icon>
+        {{item.pizza.name}}
+        
+           </button>
+  </ion-list>
+  </ion-card>
+</ion-content>

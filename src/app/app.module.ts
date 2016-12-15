@@ -1,9 +1,11 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { Storage } from '@ionic/storage';
+import { UserSettings } from '../shared/shared';
 
 import { Home } from '../pages/home/home';
-import { Page2 } from '../pages/page2/page2';
+import { FavoritesPage } from '../pages/favorites/favorites';
 import { PizzaPage } from '../pages/pizza/pizza';
 import { DetailPage } from '../pages/detail/detail';
 import {InformationPage} from '../pages/information/information';
@@ -14,10 +16,11 @@ enableProdMode();
   declarations: [
     MyApp,
     Home,
-    Page2,
+    FavoritesPage,
     PizzaPage,
     InformationPage,
-    DetailPage
+    DetailPage,
+    
 
   ],
   imports: [
@@ -27,11 +30,11 @@ enableProdMode();
   entryComponents: [
     MyApp,
     Home,
-    Page2,
+    FavoritesPage,
     PizzaPage,
     InformationPage,
     DetailPage
    ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Storage,UserSettings]
 })
 export class AppModule {}

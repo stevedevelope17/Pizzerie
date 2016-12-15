@@ -9,27 +9,34 @@
   <ion-navbar>
     <ion-title>Pizza</ion-title>
   </ion-navbar>
-<ion-toolbar>
-    <ion-segment secondary [(ngModel)]="sizeFilter" (ionChange)="filterSize()" >
-            <ion-segment-button value="30">30 CM</ion-segment-button>
-        <ion-segment-button  value="50"> 50 CM</ion-segment-button>
+  <ion-toolbar>
+    <ion-segment secondary [(ngModel)]="sizeFilter" (ionChange)="filterSize()">
+      <ion-segment-button value="30">30 CM</ion-segment-button>
+      <ion-segment-button value="50"> 50 CM</ion-segment-button>
     </ion-segment>
-</ion-toolbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    
- <ion-list >
-            <ion-list-header class="my-teams-header">Pizza </ion-list-header>
-            <button icon-left ion-item *ngFor="let pizza of pizzas" (click)="itemTapped($event, pizza)">
-               <ion-thumbnail item-left>
-      <img src="{{pizza.image}}">
-    </ion-thumbnail>
-               <h2>{{pizza.name}}</h2>
-    <h3>{{pizza.description}}</h3>
-    <h4>{{pizza.weight}}</h4>
-    <p>{{pizza.price}}</p>
-            </button>
-        </ion-list>
 
+  <ion-list>
+    <ion-list-header class="ion-list-header">Pizza </ion-list-header>
+      <ion-item *ngFor="let pizza of pizzasFiltered" (click)="itemTapped($event, pizza)">
+
+<!--    <button icon-left ion-item  *ngFor="let pizza of pizzasFiltered" (click)="itemTapped($event, pizza)">
+-->     <ion-thumbnail item-left>
+          <img src="{{pizza.image}}">
+        </ion-thumbnail>  
+                     
+    <h2 class="h2">{{pizza.name}}</h2>
+    <p>{{pizza.description}}</p>
+    <h4>{{pizza.weight}}</h4>
+    <p class="p">{{pizza.price}}</p>           
+ <!--     </button> -->
+<!---<button ion-button clear item-right>
+  <ion-icon name="arrow-forward"></ion-icon>
+</button>
+-->
+</ion-item >
+</ion-list>
 </ion-content>

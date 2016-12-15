@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Events, Nav,LoadingController, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { UserSettings } from '../shared/shared';
 
 import { Home } from '../pages/home/home';
-import { Page2 } from '../pages/page2/page2';
+import { FavoritesPage } from '../pages/favorites/favorites';
 import { PizzaPage } from '../pages/pizza/pizza';
 import { DetailPage } from '../pages/detail/detail';
 import { InformationPage } from '../information/information';
@@ -17,15 +18,19 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = Home;
+  favoriteFoods: any[];
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform,
+  public userSettings: UserSettings,
+  public loadingController: LoadingController,
+  public events: Events) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: Home },
-      { title: 'Page Two', component: Page2 }
+    //  { title: 'Favorites', component: FavoritesPage }
     ];
 
   }
@@ -42,8 +47,27 @@ export class MyApp {
          if (nav.canGoBack()) {nav.pop();}
          else {this.confirmExitApp(nav);}
        },101);
+
+        this.userSettings.initStorage().then(() => {
+        this.rootPage = Home;
+        this.refreshFavorites();
+        this.events.subscribe('favorites:changed', () => this.refreshFavorites());
+      });
     });
     
+  }
+  refreshFavorites(){
+    this.userSettings.getAllFavorites().then(favs => this.favoriteFoods = favs);
+    //this.favoriteTeams = this.userSettings.getAllFavorites();
+  }
+
+   goToFood(favorite){
+    let loader = this.loadingController.create({
+        content: 'Getting data...',
+        dismissOnPageChange: true
+    });
+    loader.present();
+    this.nav.push(DetailPage, favorite.pizza);
   }
 
   openPage(page) {

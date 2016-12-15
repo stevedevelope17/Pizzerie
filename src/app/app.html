@@ -11,6 +11,15 @@
         {{p.title}}
       </button>
     </ion-list>
+
+    <ion-list>
+      <ion-list-header>Favorites</ion-list-header>
+      <button menuClose ion-item *ngFor="let fav of favoriteFoods" (click)="goToFood(fav)">
+       <ion-icon name="star"></ion-icon>
+        {{fav.pizza.name}}
+         
+      </button>
+    </ion-list>
   </ion-content>
 
 </ion-menu>

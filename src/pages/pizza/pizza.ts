@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController,LoadingController, NavParams } from 'ionic-angular';
 
 import { Home } from '../home/home';
 import { DetailPage } from '../detail/detail';
@@ -25,6 +25,7 @@ allSize: any[];
 pizzasFiltered: any[];
 pizzas = [
          {
+             id: 1,
              name: 'PIZZA MARGARITA',
              description: 'sos de rosii , mozzarella',
              weight: 'Cca 490 g',
@@ -33,6 +34,7 @@ pizzas = [
              size: '30'
          },
          {
+             id: 2,
              name: 'PIZZA  A LA GYROS',
              description: 'sos de rosii , mozzarella , carne de pui',
              weight: 'Cca 480 g',
@@ -41,6 +43,7 @@ pizzas = [
              size: '50'
          }, 
          {
+             id: 3,
              name: 'PIZZA MARGARITA',
              description: 'sos de rosii , mozzarella',
              weight: 'Cca 490 g',
@@ -49,6 +52,7 @@ pizzas = [
              size: '30'
          },
          {
+            id: 4,
              name: 'PIZZA  A LA GYROS',
              description: 'sos de rosii , mozzarella , carne de pui',
              weight: 'Cca 480 g',
@@ -57,6 +61,7 @@ pizzas = [
              size: '50'
          },
           {
+             id: 5,
              name: 'PIZZA MARGARITA',
              description: 'sos de rosii , mozzarella',
              weight: 'Cca 490 g',
@@ -65,27 +70,35 @@ pizzas = [
              size: '30'
          },
          {
+             id: 6,
              name: 'PIZZA  A LA GYROS',
-             description: 'sos de rosii , mozzarella , carne de pui',
+             description: 'sos de rosii , mozzarella , carne de pui,sos de rosii , mozzarella , carne de pui',
              weight: 'Cca 480 g',
              image: 'img/pizza.png',
              price: '18 RON',
              size: '30'
          }
      ];
-     
+    
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams) {}
+              public navParams: NavParams,
+              public loadingController: LoadingController) {}
 
   ionViewDidLoad() {
-     this.filterSize();
+    this.filterSize();
+
     
   }
   ionViewWillEnter(){
     this.refreshAll(this);
   }
    itemTapped($event, pizza){
+     let loader = this.loadingController.create({
+            content: 'Getting data...',
+            dismissOnPageChange: true
+        });
+        loader.present();
     this.navCtrl.parent.parent.push(DetailPage, pizza); 
   }
   filterSize(){
