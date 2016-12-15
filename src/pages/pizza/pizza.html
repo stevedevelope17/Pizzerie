@@ -9,33 +9,27 @@
   <ion-navbar>
     <ion-title>Pizza</ion-title>
   </ion-navbar>
-
+<ion-toolbar>
+    <ion-segment secondary [(ngModel)]="sizeFilter" (ionChange)="filterSize()" >
+            <ion-segment-button value="30">30 CM</ion-segment-button>
+        <ion-segment-button  value="50"> 50 CM</ion-segment-button>
+    </ion-segment>
+</ion-toolbar>
 </ion-header>
 
-
 <ion-content padding>
-  <ion-list *ngFor="let pizza of pizzas">
-  <ion-item >
-    <ion-thumbnail item-left>
+    
+ <ion-list >
+            <ion-list-header class="my-teams-header">Pizza </ion-list-header>
+            <button icon-left ion-item *ngFor="let pizza of pizzas" (click)="itemTapped($event, pizza)">
+               <ion-thumbnail item-left>
       <img src="{{pizza.image}}">
     </ion-thumbnail>
-    <h2>{{pizza.name}}</h2>
+               <h2>{{pizza.name}}</h2>
+    <h3>{{pizza.description}}</h3>
+    <h4>{{pizza.weight}}</h4>
     <p>{{pizza.price}}</p>
-    <button ion-button clear item-right  >View</button>
-  </ion-item>
- 
- </ion-list>
- <ion-list *ngFor="let pizza of pizzas">
-  <ion-item-divider ion-item light no-lines style="font-size: 1.4rem">
-   <ion-item>
-    <ion-avatar item-left>
-      <img src="img/pizza2.png">
-    </ion-avatar>
-    <h2>{{pizza.name}}</h2>
-    <h3>{{pizza.price}}</h3>
-    <p>I've had a pretty messed up day. If we just...</p>
-  </ion-item>
-  </ion-item-divider>
-</ion-list>
+            </button>
+        </ion-list>
 
 </ion-content>

@@ -21748,3 +21748,38 @@ sub {
     padding-top: calc(16px + 20px);
   }
 }
+
+page-detail .card-background-page ion-card {
+  position: relative;
+  text-align: center;
+}
+
+page-detail .card-background-page .card-title {
+  position: absolute;
+  top: 1%;
+  font-size: 2.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #bc5433;
+}
+
+page-detail .card-background-page .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  color: #cf5565;
+}
+
+page-home .tab-replay {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
+  background-image: url("../img/pizzaTabIcon.png");
+}
+
+page-pizza .pizzaTabIcon {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/pizzaTabIcon.png");
+}
